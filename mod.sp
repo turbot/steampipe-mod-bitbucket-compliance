@@ -21,10 +21,5 @@ mod "bitbucket_compliance" {
     description = "Run individual configuration, compliance and security controls or full compliance benchmarks for BitBucket across your repositories and organizations using Steampipe."
     image       = "/images/mods/turbot/bitbucket-compliance-social-graphic.png"
   }
-
-  require {
-    plugin "bitbucket" {
-      // version = "0.19.0"
-    }
-  }
+  
 }
