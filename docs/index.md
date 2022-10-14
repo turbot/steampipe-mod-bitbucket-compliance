@@ -13,7 +13,7 @@ Run security controls across all your BitBucket organizations and repositories t
 
 ## References
 
-[GitHub](https://github.com/) is a provider of Internet hosting for software development and version control using Git.
+[BitBucket](https://bitbucket.org/) is a Git-based source code repository hosting service owned by Atlassian.
 
 [Steampipe](https://steampipe.io) is an open source CLI to instantly query cloud APIs using SQL.
 
@@ -90,24 +90,7 @@ This mod uses the credentials configured in the [Steampipe BitBucket plugin](htt
 
 ### Configuration
 
-Few benchmarks have [input variables](https://steampipe.io/docs/using-steampipe/mod-variables) that can be configured to better match your environment and requirements. Each variable has a default defined in its source file, e.g., `cis_supply_chain_v100/section_1.sp`, but these can be overwritten in several ways:
-
-- Copy and rename the `steampipe.spvars.example` file to `steampipe.spvars`, and then modify the variable values inside that file
-- Pass in a value on the command line:
-
-  ```shell
-  steampipe check control.cis_supply_chain_v100_1_2_3 --var='trusted_repo_admins=["user_1", "user_2"]'
-  ```
-
-- Set an environment variable:
-
-  ```shell
-  SP_VAR_trusted_repo_admins='["user_1", "user_2"]' steampipe check control.cis_supply_chain_v100_1_2_3
-  ```
-
-  - Note: When using environment variables, if the variable is defined in `steampipe.spvars` or passed in through the command line, either of those will take precedence over the environment variable value. For more information on variable definition precedence, please see the link below.
-
-These are only some of the ways you can set variables. For a full list, please see [Passing Input Variables](https://steampipe.io/docs/using-steampipe/mod-variables#passing-input-variables).
+No extra configuration is required.
 
 ## Contributing
 
