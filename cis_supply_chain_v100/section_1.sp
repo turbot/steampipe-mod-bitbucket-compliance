@@ -8,12 +8,6 @@ locals {
   cis_supply_chain_v100_1_1_common_tags = merge(local.cis_supply_chain_v100_1_common_tags, {
     cis_section_id = "1.1"
   })
-  cis_supply_chain_v100_1_2_common_tags = merge(local.cis_supply_chain_v100_1_common_tags, {
-    cis_section_id = "1.2"
-  })
-  cis_supply_chain_v100_1_3_common_tags = merge(local.cis_supply_chain_v100_1_common_tags, {
-    cis_section_id = "1.3"
-  })
 }
 
 benchmark "cis_supply_chain_v100_1" {
@@ -88,7 +82,7 @@ control "cis_supply_chain_v100_1_1_9" {
 control "cis_supply_chain_v100_1_1_10" {
   title         = "1.1.10 Ensure open Git branches are up to date before they can be merged into code base"
   description   = "Organizations should make sure each suggested code change is in full sync with the existing state of its origin code repository before allowing merging."
-  sql           = query.main_branch_git_branches_upto_date.sql
+  sql           = query.main_branch_is_upto_date_before_merge.sql
   documentation = file("./cis_supply_chain_v100/docs/cis_supply_chain_v100_1_1_10.md")
 
   tags = merge(local.cis_supply_chain_v100_1_1_common_tags, {

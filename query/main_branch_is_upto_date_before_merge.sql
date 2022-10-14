@@ -34,11 +34,10 @@ select
     when (br1.full_name is not null and br2.full_name is not null) then 'ok'
     else 'alarm'
   end as status,
-    r.full_name || ' default branch ' || r.main_branch_name || case when (br1.full_name is not null and br2.full_name is not null) then ' has ' else ' does not have ' end || 'open Git branches up to date.' as reason,
+    r.full_name || ' default branch ' || r.main_branch_name || case when (br1.full_name is not null and br2.full_name is not null) then ' requires ' else ' does not requires ' end || 'open branches to be upto date before merge.' as reason,
   -- Additional Dimensions
   r.full_name
 from
   my_repo as r
   left join branch_restriction_1 as br1 on br1.full_name = r.full_name
   left join branch_restriction_2 as br2 on br2.full_name = r.full_name;
-  

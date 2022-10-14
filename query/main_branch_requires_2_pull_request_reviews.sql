@@ -21,6 +21,7 @@ select
   -- Required Columns
   r.full_name as resource,
   case
+    when br.value is null then 'alarm'
     when br.value >= 2 then 'ok'
     else 'alarm'
   end as status,
